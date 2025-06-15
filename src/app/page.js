@@ -8,6 +8,7 @@ import "@leenguyen/react-flip-clock-countdown/dist/index.css";
 import { showFireworks, Fireworks } from "@fireworks-js/react";
 
 import Image from "next/image";
+import Wave from "@/wave";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -38,7 +39,7 @@ export default function Home() {
           </div>
         </div>
       ) : (
-        <div className="min-h-screen mx-auto w-full max-w-4xl flex items-center justify-center">
+        <div className="min-h-screen w-full">
           {showFireworks && (
             <Fireworks
               options={{
@@ -54,12 +55,29 @@ export default function Home() {
               }}
             />
           )}
-          <div className="flex flex-col items-center justify-center">
-            <Image src="/punting.png" alt="Pirate" width={400} height={400} />
-            <FlipClockCountdown
-              to={goal}
-              showLabels={false}
-              hideOnComplete={false}
+
+          <div className="min-h-screen flex items-center">
+            <div className="mx-auto max-w-4xl mb-30 flex flex-col items-center justify-center">
+              <Image src="/punting.png" alt="Pirate" width={400} height={400} />
+              <FlipClockCountdown
+                to={goal}
+                showLabels={false}
+                hideOnComplete={false}
+              />
+            </div>
+          </div>
+
+          <div className="absolute bottom-0 left-0 w-full">
+            <Wave
+              fill="#0abae1"
+              paused={false}
+              style={{ display: "flex" }}
+              options={{
+                height: 100,
+                amplitude: 30,
+                speed: 0.3,
+                points: 4,
+              }}
             />
           </div>
         </div>
