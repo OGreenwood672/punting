@@ -103,7 +103,7 @@ export default function Home() {
               style={{ display: "flex" }}
               options={{
                 height: 100,
-                amplitude: 30,
+                amplitude: window.innerWidth < 768 ? 15 : 30,
                 speed: 0.3,
                 points: 4,
               }}
