@@ -17,14 +17,26 @@ This project is a game that combines the traditional Cambridge punting experienc
 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/pirate-punt.git
+git clone https://github.com/OGreenwood672/punting.git
 ```
 
-2. [Additional installation steps]
+2. Install packages
+
+```
+npm install
+```
 
 ## Usage
 
-[Add usage instructions here]
+Be good
+
+```
+npm run build
+```
+
+```
+npm run start
+```
 
 ## Contributing
 
@@ -37,5 +49,7 @@ This project is licensed under the [LICENSE.md](LICENSE.md) file for details.
 ## Acknowledgments
 
 React Man - Oliver Greenwood
+
 Wave and Boat Man - Brace
+
 Art & Design - Jess
