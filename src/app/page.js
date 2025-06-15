@@ -10,12 +10,14 @@ import { Fireworks } from "@fireworks-js/react";
 import Image from "next/image";
 import Wave from "@/wave";
 
+import Head from "next/head";
+
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   setTimeout(() => {
     setIsLoading(false);
-  }, 3800);
+  }, 2800);
 
   const goal = new Date("2025-06-19T11:10:00Z");
 
@@ -32,8 +34,11 @@ export default function Home() {
 
   return (
     <div onClick={() => setIsLoading(false)} className="bg-white">
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       {isLoading ? (
-        <div className="bg-radial-[at_0%_0%] from-[#f5ef9f] via-[#ebe867] to-[#f3c11f] bg-left-top min-h-screen flex items-center justify-center">
+        <div className="bg-white min-h-screen flex items-center justify-center">
           <div className="w-1/2 mb-20">
             <DotLottieReact src="/pirate.lottie" autoplay speed={0.6} loop />
           </div>
