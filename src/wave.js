@@ -4,12 +4,6 @@ let reportedError;
 const aspect = 939 / 1366;
 const middlePoint = 2;
 
-const clamp = (value, min, max) => {
-  if (value < min) return min;
-  if (value > max) return max;
-  return value;
-};
-
 class WaveBase extends Component {
   _container = React.createRef();
   _lastUpdate = 0;
