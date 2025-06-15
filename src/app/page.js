@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import FlipClockCountdown from "@leenguyen/react-flip-clock-countdown";
 import "@leenguyen/react-flip-clock-countdown/dist/index.css";
 
-import { showFireworks, Fireworks } from "@fireworks-js/react";
+import { Fireworks } from "@fireworks-js/react";
 
 import Image from "next/image";
 import Wave from "@/wave";
@@ -31,7 +31,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div onClick={() => setIsLoading(false)}>
+    <div onClick={() => setIsLoading(false)} className="bg-white">
       {isLoading ? (
         <div className="bg-radial-[at_0%_0%] from-[#f5ef9f] via-[#ebe867] to-[#f3c11f] bg-left-top min-h-screen flex items-center justify-center">
           <div className="w-1/2 mb-20">
@@ -57,8 +57,14 @@ export default function Home() {
           )}
 
           <div className="min-h-screen flex items-center">
-            <div className="mx-auto max-w-4xl mb-30 flex flex-col items-center justify-center">
-              <Image src="/punting.png" alt="Pirate" width={400} height={400} />
+            <div className="mb-40 mx-auto max-w-4xl flex flex-col items-center justify-center">
+              <Image
+                src="/punt_bro.png"
+                alt="Pirate"
+                width={500}
+                height={500}
+                className="mb-2"
+              />
               <FlipClockCountdown
                 to={goal}
                 showLabels={false}
@@ -79,6 +85,9 @@ export default function Home() {
                 points: 4,
               }}
             />
+            <div className="bg-[#0abae1] h-15 text-beard font-semibold text-shadow-sm flex items-center justify-center">
+              <p>Oliver Greenbeard • Jess Peg • Brace Gutfrey</p>
+            </div>
           </div>
         </div>
       )}

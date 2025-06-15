@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Punts Ahoy",
-  description: "One mans punt, is anothers treasure",
+  description: "One man's punt, is another's treasure",
 };
 
 export default function RootLayout({ children }) {
