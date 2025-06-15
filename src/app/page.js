@@ -32,14 +32,27 @@ export default function Home() {
     return () => clearInterval(timer);
   }, []);
 
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsSmallScreen(window.innerWidth < 768);
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
   return (
     <div onClick={() => setIsLoading(false)} className="bg-white">
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/icon.ico" />
       </Head>
       {isLoading ? (
         <div className="bg-white min-h-screen flex items-center justify-center">
-          <div className="w-1/2 mb-20">
+          <div className="w-full md:w-1/2 mb-20">
             <DotLottieReact src="/pirate.lottie" autoplay speed={0.6} loop />
           </div>
         </div>
@@ -62,7 +75,7 @@ export default function Home() {
           )}
 
           <div className="min-h-screen flex items-center">
-            <div className="mb-40 mx-auto max-w-4xl flex flex-col items-center justify-center">
+            <div className="mb-40 mx-auto max-w-72 md:max-w-4xl flex flex-col items-center justify-center">
               <Image
                 src="/punt_bro.png"
                 alt="Pirate"
@@ -74,6 +87,11 @@ export default function Home() {
                 to={goal}
                 showLabels={false}
                 hideOnComplete={false}
+                digitBlockStyle={
+                  isSmallScreen
+                    ? { width: 25, height: 40, fontSize: 20 }
+                    : { width: 35, height: 60, fontSize: 30 }
+                }
               />
             </div>
           </div>
@@ -90,8 +108,10 @@ export default function Home() {
                 points: 4,
               }}
             />
-            <div className="bg-[#0abae1] h-15 text-beard font-semibold text-shadow-sm flex items-center justify-center">
-              <p>Oliver Greenbeard • Jess Peg • Brace Gutfrey</p>
+            <div className="bg-[#0abae1] h-15 font-semibold text-shadow-sm flex items-center justify-center">
+              <p className="text-xs md:text-lg text-white">
+                Oliver Greenbeard • Jess Peg • Brace Gutfrey
+              </p>
             </div>
           </div>
         </div>
