@@ -19,7 +19,7 @@ export default function Home() {
     setIsLoading(false);
   }, 2800);
 
-  const goal = new Date("2025-06-19T11:10:00Z");
+  const goal = new Date("2025-06-19T10:10:00Z");
 
   const now = new Date();
   const [showFireworks, setShowFireworks] = useState(now > goal);
